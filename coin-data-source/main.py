@@ -28,7 +28,7 @@ def main():
                 for coin in coins:
 
                  # Serialize a coin using the topic
-                  coin_data = output_topic.serialize(key=coin['name'], value=coin)
+                  coin_data = output_topic.serialize(key=coin['symbol'], value=coin)
 
                   print(coin_data.key)
                   producer.produce(
