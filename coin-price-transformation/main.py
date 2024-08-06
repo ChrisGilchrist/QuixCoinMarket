@@ -20,16 +20,24 @@ def compareRecentPrices(coin_value):
     
     # Check old price first 
     if id not in recent_prices:
-      recent_prices[id] = 0  # or set it to a default value
-
-    oldPrice = recent_prices[id]
+      recent_prices[id] = {
+          'price': 0
+      }
+      
+    print('PRICE', recent_prices)
+    oldPrice = recent_prices[id]['price']
+    status = ''
     if (price > oldPrice):
-      coin_value['quote']['GBP']['status'] = 'Increased'
+        status = 'Increased'
     elif (price < oldPrice):
-      coin_value['quote']['GBP']['status'] = 'Decreased'
+        status = 'Decreased'
 
+    coin_value['quote']['GBP']['status'] = status
     # Update with current
-    recent_prices[id] = price
+    recent_prices[id] = {
+        'price': price,
+        'status': status
+    }
     
     return coin_value
 
