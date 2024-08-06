@@ -27,7 +27,7 @@ export class QuixService {
 	private workingLocally = true; // set to true if working locally
 
 	public workspaceId: string = 'quixdev-quixcoinmarket-develop'; // Look in the URL for the Quix Portal your workspace ID is after 'workspace='
-	public coinDataTopic: string = 'updated-coin-data'; // get topic name from the Topics page
+	public coinDataTopic: string = 'coin-data-updated'; // get topic name from the Topics page
 	/*~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
 
 	private subdomain = 'dev'; // leave as 'platform'

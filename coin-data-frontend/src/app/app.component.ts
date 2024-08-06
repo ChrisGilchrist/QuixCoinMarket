@@ -45,7 +45,7 @@ export class AppComponent implements OnDestroy {
         const { stringValues } = payload;
         const key = Object.keys(stringValues)?.at(0);
         const coin = JSON.parse(Object.values(stringValues)?.at(0)?.at(0));
-        const coinIndex = this.coins.findIndex((f) => f.name === key);
+        const coinIndex = this.coins.findIndex((f) => f.symbol === key);
 
         if (coinIndex > -1) {
           this.coins[coinIndex] = coin;

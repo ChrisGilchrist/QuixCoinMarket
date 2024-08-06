@@ -12,7 +12,11 @@
         <tr *ngFor="let coin of coins">
           <td>{{ coin.name  }}</td>
           <td>£{{ coin?.quote?.GBP?.price  }}</td>
-          <td>{{ coin?.quote?.GBP?.status  }}</td>
+          <td 
+            [class.increased]="coin?.quote?.GBP?.status === 'Increased'"
+            [class.decreased]="coin?.quote?.GBP?.status === 'Decreased'">
+            {{ coin?.quote?.GBP?.status  }}
+          </td>
         </tr>
       </tbody>
     </table>
