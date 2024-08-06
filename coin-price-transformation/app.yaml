@@ -3,12 +3,10 @@ language: python
 variables:
   - name: input
     inputType: InputTopic
-    description: Name of the input topic to listen to.
     defaultValue: coin-data-gbp
     required: false
   - name: output
     inputType: OutputTopic
-    description: Name of the output topic to write to.
     defaultValue: coin-data-updated
     required: false
 dockerfile: dockerfile
