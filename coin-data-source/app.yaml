@@ -5,6 +5,10 @@ variables:
     inputType: OutputTopic
     defaultValue: coin-data
     required: false
+  - name: API_KEY
+    inputType: Secret
+    defaultValue: API_KEY-key
+    required: false
 dockerfile: dockerfile
 runEntryPoint: main.py
 defaultFile: main.py
