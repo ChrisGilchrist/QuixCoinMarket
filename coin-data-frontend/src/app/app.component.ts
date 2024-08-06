@@ -14,6 +14,8 @@ export class AppComponent implements OnDestroy {
 	readerConnectionStatus: ConnectionStatus = ConnectionStatus.Offline;
 	writerConnectionStatus: ConnectionStatus = ConnectionStatus.Offline;
 
+  coins: any[] = [];
+
   private unsubscribe$ = new Subject<void>();
 
 	constructor(private quixService: QuixService) {
@@ -38,7 +40,23 @@ export class AppComponent implements OnDestroy {
         //filter((f) => f.streamId === this.roomService.selectedRoom) // Ensure there is no message leaks
       )
       .subscribe((payload) => {
-        console.log('PAYLOAD RECIEVED', payload);
+        // console.log('PAYLOAD RECIEVED', payload);
+
+        const { stringValues } = payload;
+        const key = Object.keys(stringValues)?.at(0);
+        const coin = JSON.parse(Object.values(stringValues)?.at(0)?.at(0));
+        const coinIndex = this.coins.findIndex((f) => f.name === key);
+
+        if (coinIndex > -1) {
+          this.coins[coinIndex] = coin;
+          // compare the prices and chanhe the color accordinly
+        } else {
+          this.coins.push(coin);
+        }
+
+        console.log('couns', this.coins);
+
+
       });
 	}
 

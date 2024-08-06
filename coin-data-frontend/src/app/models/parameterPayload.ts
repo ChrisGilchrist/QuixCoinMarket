@@ -33,7 +33,7 @@ export interface ParameterData {
 	 * The key is the parameter Id the values belong to
 	 * The value is the string values of the parameter. Values are matched by index to @see Timestamps
 	 */
-	stringValues: { [key: string]: string[] };
+	stringValues: { [key: string]: any[] };
 
 	/**
 	 * The tag values for parameters.

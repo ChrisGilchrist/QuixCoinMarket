@@ -1,0 +1,51 @@
+.table-container {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #0070f3;
+  color: white;
+  position: sticky;
+  top: 0; /* Makes the header stick to the top */
+  z-index: 1; /* Ensures the header stays above the body */
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 600px) {
+  th, td {
+      display: block;
+      width: 100%;
+  }
+
+  tr {
+      margin-bottom: 15px;
+      display: block;
+      border-bottom: 1px solid #ddd;
+  }
+}
+
+.increased {
+  color: green;
+}
+
+.decreased {
+  color: red;
+}
