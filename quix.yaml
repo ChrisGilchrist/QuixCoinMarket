@@ -22,7 +22,7 @@ deployments:
       - name: API_KEY
         inputType: Secret
         required: false
-        secretKey: API_KEY-key
+        secretKey: API_KEY
   - name: coin-data-transformation
     application: coin-data-transformation
     version: latest
