@@ -23,20 +23,6 @@ deployments:
         inputType: Secret
         required: false
         secretKey: API_KEY
-  - name: coin-data-frontend
-    application: coin-data-frontend
-    version: latest
-    deploymentType: Service
-    resources:
-      cpu: 200
-      memory: 800
-      replicas: 1
-    variables:
-      - name: input
-        inputType: InputTopic
-        description: ''
-        required: false
-        value: updated-coin-data
   - name: usd-to-gbp-transformation
     application: usd-to-gbp-transformation
     version: latest
