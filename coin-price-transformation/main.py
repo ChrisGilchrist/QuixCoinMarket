@@ -25,9 +25,9 @@ def compareRecentPrices(coin_value):
     oldPrice = recent_prices[id]
     if (price > oldPrice):
       coin_value['quote']['GBP']['status'] = 'Increased'
-    else:
-      coin_value['quote']['GBP']['status'] = 'Decreased'
-    
+    elif (price < oldPrice):
+        coin_value['quote']['GBP']['status'] = 'Decreased'
+  
     # Update with current
     recent_prices[id] = price
     
