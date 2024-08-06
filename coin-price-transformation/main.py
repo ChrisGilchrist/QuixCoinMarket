@@ -14,10 +14,14 @@ sdf = app.dataframe(input_topic)
 
 recent_prices = {}
 def compareRecentPrices(coin_value):
-    id = coin_value['id']
+    print('COINNNNn', coin_value)
+    id = coin_value['symbol'].replace("'", "")
     price =  coin_value['quote']['GBP']['price']
     
     # Check old price first 
+    if id not in recent_prices:
+      recent_prices[id] = 0  # or set it to a default value
+    
     oldPrice = recent_prices[id]
     if (price > oldPrice):
       coin_value['quote']['GBP']['status'] = 'Increased'
@@ -37,8 +41,9 @@ def updateCoinInfo(coin_value):
 sdf = (
     # Convert the temperature value from °F to °C
     # E.g. {"tempF": 68} will become {"tempC": 20}
-    sdf.apply(lambda value: {value['symbol']: updateCoinInfo(value)})
-
+    sdf.apply(lambda value: {
+    next(iter(value.items()))[0]: updateCoinInfo(next(iter(value.items()))[1])
+})
     # Print the result to the console
     .update(print)
 )
