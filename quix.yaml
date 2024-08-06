@@ -71,6 +71,23 @@ deployments:
         inputType: OutputTopic
         required: false
         value: coin-data-updated
+  - name: coin-price-transformation 2
+    application: coin-price-transformation
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    variables:
+      - name: input
+        inputType: InputTopic
+        required: false
+        value: coin-data-gbp
+      - name: output
+        inputType: OutputTopic
+        required: false
+        value: coin-data-updated
 
 # This section describes the Topics of the data pipeline
 topics:
