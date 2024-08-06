@@ -76,6 +76,3 @@ topics:
   - name: coin-data
   - name: coin-data-gbp
   - name: coin-data-updated
-  - name: updated-coin-data
-    configuration:
-      partitions: 1
