@@ -1,0 +1,14 @@
+name: coin-data-transformation
+language: Python
+variables:
+  - name: input
+    inputType: InputTopic
+    defaultValue: coin-data
+    required: false
+  - name: output
+    inputType: OutputTopic
+    defaultValue: updated-coin-data
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: quix_function.py

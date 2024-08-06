@@ -1,0 +1,43 @@
+# Quix Project Descriptor
+# This file describes the data pipeline and configuration of resources of a Quix Project.
+
+metadata:
+  version: 1.0
+
+# This section describes the Deployments of the data pipeline
+deployments:
+  - name: coin-data-source
+    application: coin-data-source
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 800
+      replicas: 1
+    variables:
+      - name: output
+        inputType: OutputTopic
+        required: false
+        value: coin-data
+  - name: coin-data-transformation
+    application: coin-data-transformation
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 800
+      replicas: 1
+    variables:
+      - name: input
+        inputType: InputTopic
+        required: false
+        value: coin-data
+      - name: output
+        inputType: OutputTopic
+        required: false
+        value: updated-coin-data
+
+# This section describes the Topics of the data pipeline
+topics:
+  - name: coin-data
+  - name: updated-coin-data
