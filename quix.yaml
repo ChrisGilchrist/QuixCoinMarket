@@ -23,23 +23,6 @@ deployments:
         inputType: Secret
         required: false
         secretKey: API_KEY
-  - name: coin-data-transformation
-    application: coin-data-transformation
-    version: latest
-    deploymentType: Service
-    resources:
-      cpu: 200
-      memory: 800
-      replicas: 1
-    variables:
-      - name: input
-        inputType: InputTopic
-        required: false
-        value: coin-data
-      - name: output
-        inputType: OutputTopic
-        required: false
-        value: updated-coin-data
   - name: coin-data-frontend
     application: coin-data-frontend
     version: latest
