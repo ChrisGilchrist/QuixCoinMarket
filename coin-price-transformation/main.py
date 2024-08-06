@@ -14,20 +14,20 @@ sdf = app.dataframe(input_topic)
 
 recent_prices = {}
 def compareRecentPrices(coin_value):
-    print('COINNNNn', coin_value)
     id = coin_value['symbol'].replace("'", "")
     price =  coin_value['quote']['GBP']['price']
+    print('COINNNNn', price)
     
     # Check old price first 
     if id not in recent_prices:
       recent_prices[id] = 0  # or set it to a default value
-    
+
     oldPrice = recent_prices[id]
     if (price > oldPrice):
       coin_value['quote']['GBP']['status'] = 'Increased'
     elif (price < oldPrice):
-        coin_value['quote']['GBP']['status'] = 'Decreased'
-  
+      coin_value['quote']['GBP']['status'] = 'Decreased'
+
     # Update with current
     recent_prices[id] = price
     
