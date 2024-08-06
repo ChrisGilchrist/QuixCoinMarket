@@ -40,23 +40,6 @@ deployments:
         inputType: OutputTopic
         required: false
         value: coin-data-gbp
-  - name: price-change-transformation
-    application: price-change-transformation
-    version: latest
-    deploymentType: Service
-    resources:
-      cpu: 200
-      memory: 800
-      replicas: 1
-    variables:
-      - name: input
-        inputType: InputTopic
-        required: false
-        value: coin-data-gbp
-      - name: output
-        inputType: OutputTopic
-        required: false
-        value: coin-data-updated
   - name: coin-data-frontend
     application: coin-data-frontend
     version: latest
