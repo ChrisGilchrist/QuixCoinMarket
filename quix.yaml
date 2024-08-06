@@ -40,6 +40,19 @@ deployments:
         inputType: OutputTopic
         required: false
         value: updated-coin-data
+  - name: coin-data-frontend
+    application: coin-data-frontend
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 800
+      replicas: 1
+    variables:
+      - name: input
+        inputType: InputTopic
+        required: false
+        value: updated-coin-data
 
 # This section describes the Topics of the data pipeline
 topics:

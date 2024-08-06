@@ -4,6 +4,7 @@ graph LR;
 coin-data-source[fa:fa-rocket coin-data-source &#8205] --> coin-data{{ fa:fa-arrow-right-arrow-left coin-data &#8205}}:::topic;
 coin-data{{ fa:fa-arrow-right-arrow-left coin-data &#8205}}:::topic --> coin-data-transformation[fa:fa-rocket coin-data-transformation &#8205];
 coin-data-transformation[fa:fa-rocket coin-data-transformation &#8205] --> updated-coin-data{{ fa:fa-arrow-right-arrow-left updated-coin-data &#8205}}:::topic;
+updated-coin-data{{ fa:fa-arrow-right-arrow-left updated-coin-data &#8205}}:::topic --> coin-data-frontend[fa:fa-rocket coin-data-frontend &#8205];
 
 
 classDef default font-size:110%;
