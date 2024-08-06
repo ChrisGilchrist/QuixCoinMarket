@@ -36,7 +36,7 @@ def main():
                       key=coin_data.key,
                       value=coin_data.value,
                   )
-                time.sleep(5)  # Sleep (10 seconds)
+                time.sleep(2)  # Sleep (10 seconds)
             except Exception:
                 print(traceback.format_exc())
 
