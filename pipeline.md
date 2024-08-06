@@ -7,6 +7,8 @@ coin-data-transformation[fa:fa-rocket coin-data-transformation &#8205] --> updat
 updated-coin-data{{ fa:fa-arrow-right-arrow-left updated-coin-data &#8205}}:::topic --> coin-data-frontend[fa:fa-rocket coin-data-frontend &#8205];
 coin-data{{ fa:fa-arrow-right-arrow-left coin-data &#8205}}:::topic --> usd-to-gbp-transformation[fa:fa-rocket usd-to-gbp-transformation &#8205];
 usd-to-gbp-transformation[fa:fa-rocket usd-to-gbp-transformation &#8205] --> updated-coin-data{{ fa:fa-arrow-right-arrow-left updated-coin-data &#8205}}:::topic;
+updated-coin-data{{ fa:fa-arrow-right-arrow-left updated-coin-data &#8205}}:::topic --> price-change-transformation[fa:fa-rocket price-change-transformation &#8205];
+price-change-transformation[fa:fa-rocket price-change-transformation &#8205] --> updated-coin-data{{ fa:fa-arrow-right-arrow-left updated-coin-data &#8205}}:::topic;
 
 
 classDef default font-size:110%;
