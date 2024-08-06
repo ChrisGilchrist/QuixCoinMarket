@@ -3,7 +3,8 @@ language: Python
 variables:
   - name: input
     inputType: InputTopic
-    defaultValue: updated-coin-data
+    description: ''
+    defaultValue: coin-data-updated
     required: false
 dockerfile: dockerfile
 runEntryPoint: main.py
