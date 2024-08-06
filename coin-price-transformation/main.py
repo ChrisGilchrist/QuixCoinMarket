@@ -5,19 +5,47 @@ from quixstreams import Application
 from dotenv import load_dotenv
 load_dotenv()
 
-app = Application(consumer_group="transformation-v1", auto_offset_reset="earliest")
+app = Application(consumer_group="coin-price-transformation", auto_offset_reset="earliest", use_changelog_topics=False)
 
 input_topic = app.topic(os.environ["input"])
 output_topic = app.topic(os.environ["output"])
 
 sdf = app.dataframe(input_topic)
 
-# put transformation logic here
-# see docs for what you can do
-# https://quix.io/docs/get-started/quixtour/process-threshold.html
+recent_prices = {}
+def compareRecentPrices(coin_value):
+    id = coin_value['id']
+    price =  coin_value['quote']['GBP']['price']
+    
+    # Check old price first 
+    oldPrice = recent_prices[id]
+    if (price > oldPrice):
+      coin_value['quote']['GBP']['status'] = 'Increased'
+    else:
+      coin_value['quote']['GBP']['status'] = 'Decreased'
+    
+    # Update with current
+    recent_prices[id] = price
+    
+    return coin_value
 
-sdf.print()
-sdf.to_topic(output_topic)
+
+def updateCoinInfo(coin_value):
+    new_coin_value = compareRecentPrices(coin_value)
+    return new_coin_value  
+
+sdf = (
+    # Convert the temperature value from °F to °C
+    # E.g. {"tempF": 68} will become {"tempC": 20}
+    sdf.apply(lambda value: {value['key']: updateCoinInfo(value)})
+
+    # Print the result to the console
+    .update(print)
+)
+
+
+# Send the message to the output topic
+sdf = sdf.to_topic(output_topic)
 
 if __name__ == "__main__":
     app.run(sdf)
