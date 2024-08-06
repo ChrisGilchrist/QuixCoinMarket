@@ -53,10 +53,6 @@ export class AppComponent implements OnDestroy {
         } else {
           this.coins.push(coin);
         }
-
-        console.log('couns', this.coins);
-
-
       });
 	}
 
