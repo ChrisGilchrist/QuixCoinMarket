@@ -37,7 +37,7 @@ def updateCoinInfo(coin_value):
 sdf = (
     # Convert the temperature value from °F to °C
     # E.g. {"tempF": 68} will become {"tempC": 20}
-    sdf.apply(lambda value: {value['key']: updateCoinInfo(value)})
+    sdf.apply(lambda value: {value['id']: updateCoinInfo(value)})
 
     # Print the result to the console
     .update(print)

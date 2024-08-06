@@ -5,12 +5,14 @@
         <tr>
           <th>Name</th>
           <th>Price</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let coin of coins">
           <td>{{ coin.name  }}</td>
           <td>£{{ coin?.quote?.GBP?.price  }}</td>
+          <td>{{ coin?.quote?.GBP?.status  }}</td>
         </tr>
       </tbody>
     </table>
