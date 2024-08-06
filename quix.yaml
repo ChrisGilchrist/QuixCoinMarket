@@ -34,6 +34,7 @@ deployments:
     variables:
       - name: input
         inputType: InputTopic
+        description: ''
         required: false
         value: updated-coin-data
   - name: usd-to-gbp-transformation
