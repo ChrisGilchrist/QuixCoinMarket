@@ -14,7 +14,7 @@ output_topic = app.topic(os.environ["output"])
 
 sdf = app.dataframe(input_topic)
 
-usd_to_gbp_rate = 1.28  # Example exchange rate
+usd_to_gbp_rate = 0.78 # Example exchange rate
 def convert_to_gbp(coin_value):
     usd_value = coin_value['quote']['USD']
     gbp_conversion = {

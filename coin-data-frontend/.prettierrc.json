@@ -1,0 +1,19 @@
+{
+	"overrides": [
+		{
+			"files": "*.html",
+			"options": {
+				"parser": "angular"
+			}
+		}
+	],
+	"singleQuote": true,
+	"trailingComma": "none",
+	"endOfLine": "auto",
+	"printWidth": 150,
+	"singleAttributePerLine": false,
+	"bracketSameLine": true,
+	"semi": true,
+	"useTabs": true,
+	"tabWidth": 2
+}
