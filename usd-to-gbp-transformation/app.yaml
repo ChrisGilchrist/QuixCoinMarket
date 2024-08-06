@@ -7,7 +7,7 @@ variables:
     required: false
   - name: output
     inputType: OutputTopic
-    defaultValue: updated-coin-data
+    defaultValue: coin-data-gbp
     required: false
 dockerfile: dockerfile
 runEntryPoint: main.py

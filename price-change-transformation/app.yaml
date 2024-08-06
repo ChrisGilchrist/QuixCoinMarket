@@ -3,11 +3,11 @@ language: Python
 variables:
   - name: input
     inputType: InputTopic
-    defaultValue: updated-coin-data
+    defaultValue: coin-data-gbp
     required: false
   - name: output
     inputType: OutputTopic
-    defaultValue: updated-coin-data
+    defaultValue: coin-data-updated
     required: false
 dockerfile: dockerfile
 runEntryPoint: main.py
